@@ -8,25 +8,25 @@ export const StepsSection = () => {
       icon: IdCard,
       title: "Separe os documentos",
       description:
-        "Leve CPF de todos da família, documento com foto, comprovante de endereço e, se tiver, NIS.",
+        "Documento com foto, CPF, comprovante de residência e dados do CadÚnico/NIS (se tiver). Alguns editais pedem renda e comprovantes extras.",
     },
     {
       icon: Building2,
-      title: "CadÚnico no CRAS",
+      title: "Acompanhe o edital do DETRAN",
       description:
-        "Faça ou atualize o CadÚnico no CRAS/posto do seu município. Entrevista e validação do cadastro.",
+        "Cada estado abre editais em períodos específicos (CNH Social/CNH Popular). Leia as regras do seu estado antes de se inscrever.",
     },
     {
       icon: Smartphone,
-      title: "Acompanhe a análise",
+      title: "Faça a inscrição quando abrir",
       description:
-        "Veja o status pelo app Bolsa Família/CAIXA Tem ou consulta pública do CadÚnico. Prefeituras também informam.",
+        "Inscreva-se pelo site do DETRAN do seu estado no prazo do edital. Preencha o formulário e envie/valide documentos exigidos.",
     },
     {
       icon: CalendarDays,
-      title: "Receba e mantenha",
+      title: "Resultado e etapas",
       description:
-        "Siga o calendário de pagamento e mantenha o benefício: condicionalidades de saúde/educação e cadastro atualizado.",
+        "Confira a seleção, faça matrícula no CFC credenciado e siga aulas teóricas/práticas e exames. O edital define o que é coberto.",
     },
   ] as const;
 
@@ -37,17 +37,20 @@ export const StepsSection = () => {
     <section id="como-agendar" className="py-20" aria-labelledby="como-agendar-title">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
+          <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+            Atualizado 2025
+          </div>
           <h2 id="como-agendar-title" className="mb-4 text-3xl font-bold md:text-4xl">
-            Como receber o Bolsa Família
+            Como participar da CNH Social
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Siga estes passos para se cadastrar, acompanhar o resultado e manter o benefício ativo.
+            Veja os passos para checar regras do seu estado, se inscrever no prazo e concluir as etapas no DETRAN/CFC.
           </p>
         </div>
 
         <ol
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto"
-          aria-label="Passo a passo para receber o Bolsa Família"
+          className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-4"
+          aria-label="Passo a passo da CNH Social"
         >
           {steps.map((step, index) => (
             <li key={step.title} className="list-none">
@@ -55,7 +58,7 @@ export const StepsSection = () => {
                 {/* badge numerado */}
                 <div
                   aria-hidden="true"
-                  className="absolute -top-4 left-6 h-8 w-8 rounded-full bg-gradient-to-br from-primary to-accent text-white flex items-center justify-center font-bold text-sm shadow-md"
+                  className="absolute -top-4 left-6 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-white shadow-md font-bold text-sm"
                 >
                   {index + 1}
                 </div>
@@ -74,13 +77,13 @@ export const StepsSection = () => {
         </ol>
 
         <div className="mt-10 text-center">
-          <p className="text-sm text-muted-foreground italic max-w-2xl mx-auto">
-            A seleção considera renda e regras do programa. Mantenha o CadÚnico atualizado (no máximo a cada 24 meses).
+          <p className="mx-auto max-w-2xl text-sm italic text-muted-foreground">
+            As regras e o que é coberto variam por estado e por edital do DETRAN. Consulte sempre o site oficial do seu estado.
           </p>
 
-          {/* CTA opcional para o quiz (se existir na página) */}
+          {/* CTA para o quiz de elegibilidade */}
           <div className="mt-4">
-            <Button variant="hero" size="lg" onClick={goQuiz} aria-label="Ir para o quiz de elegibilidade">
+            <Button variant="hero" size="lg" onClick={goQuiz} aria-label="Ir para o quiz de elegibilidade da CNH Social">
               Verificar elegibilidade
             </Button>
           </div>
