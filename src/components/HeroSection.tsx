@@ -12,27 +12,26 @@ export const HeroSection = () => {
         <div className="mx-auto max-w-5xl text-center">
           {/* Pill */}
           <div className="mb-6 inline-block rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-            Programa Bolsa Família 2025
+            Programa CNH Social 2025
           </div>
 
-          {/* Título impactante */}
+          {/* Título impactante (elegibilidade) */}
           <h1 className="mb-6 text-4xl font-extrabold leading-tight text-foreground md:text-5xl lg:text-6xl">
-            Você tem direito ao{" "}
+            Você tem direito à{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Bolsa Família?
+              CNH Social?
             </span>
           </h1>
 
           {/* Subtítulo com SEO sem poluir */}
           <p className="mx-auto mb-8 max-w-3xl text-lg text-muted-foreground md:text-xl">
-            Entenda como funciona o <strong>Bolsa Família 2025</strong> — benefício de transferência de renda
-            com regras de <strong>renda per capita</strong>, <strong>Cadastro Único (CadÚnico)</strong>, composição
-            familiar e acompanhamento de <strong>saúde</strong> e <strong>frequência escolar</strong>. Veja como
-            consultar o <strong>NIS</strong>, conferir o <strong>calendário de pagamentos</strong> e os próximos passos
-            para receber pela <strong>Caixa</strong>.
+            Descubra sua <strong>elegibilidade</strong> no <strong>Programa CNH Social 2025</strong>. Entenda
+            critérios de <strong>renda</strong> e <strong>CadÚnico</strong>, como funcionam os <strong>editais
+            do DETRAN</strong> por estado, quais <strong>taxas e etapas</strong> (teórico, prático e exames)
+            podem ser custeadas e quais <strong>documentos</strong> apresentar quando o edital estiver aberto.
           </p>
 
-          {/* CTAs */}
+          {/* CTAs alinhadas a elegibilidade/inscrição */}
           <div className="mb-2 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               size="lg"
@@ -48,31 +47,31 @@ export const HeroSection = () => {
               size="lg"
               variant="outline"
               onClick={() =>
-                document.getElementById("como-agendar")?.scrollIntoView({ behavior: "smooth" })
+                document.getElementById("como-inscrever")?.scrollIntoView({ behavior: "smooth" })
               }
               className="w-full sm:w-auto"
-              aria-label="Ver como receber"
+              aria-label="Ver como se inscrever"
             >
-              Como Receber
+              Como se Inscrever
             </Button>
           </div>
 
           {/* Linha discreta de confiança */}
           <p className="mb-8 text-xs text-muted-foreground">
-            Conteúdo informativo e independente — não oficial. Atualizado em 2025.
+            Conteúdo informativo e independente — não oficial. Atualizado em 2025. Editais variam por estado.
           </p>
 
-          {/* Link em destaque (materiais úteis) */}
+          {/* Link em destaque (material útil) */}
           <div className="mx-auto max-w-2xl rounded-lg border bg-muted/40 p-4 text-left">
             <p className="text-sm">
-              <strong>Quer ver valores e regras detalhadas?</strong>{" "}
+              <strong>Quer comparar regras por estado?</strong>{" "}
               <a
-                href="https://marciobevervanso.com.br/bolsa-familia-comparativo-beneficios-regras/"
+                href="https://marciobevervanso.com.br/cnh-gratuita-social-comparativo-regras-2025/"
                 target="_blank"
                 rel="nofollow noopener"
                 className="underline underline-offset-2 hover:text-primary"
               >
-                Bolsa Família 2025 — benefícios e regras
+                CNH Social 2025 — regras e comparação por estado
               </a>
             </p>
           </div>
@@ -80,7 +79,7 @@ export const HeroSection = () => {
           {/* Prova social / credibilidade */}
           <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <CheckCircle className="h-5 w-5 text-accent" />
-            <span>Guia prático com passo a passo para inscrição e consulta</span>
+            <span>Guia prático: critérios, documentos e etapas do processo</span>
           </div>
         </div>
       </div>
