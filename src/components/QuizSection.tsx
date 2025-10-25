@@ -5,27 +5,27 @@ import { ArrowLeft, ArrowRight, ArrowUp } from "lucide-react";
 import { toast } from "sonner";
 import { ga, observeImpressionById } from "@/lib/analytics";
 
-// links finais (prioriza Bolsa Família e materiais do seu blog)
+// links finais (prioriza CNH Social e materiais do seu blog)
 const FINAL_LINKS = [
   {
-    title: "Bolsa Família 2025 — benefícios e regras",
-    desc: "Quem tem direito, valores por perfil, condicionalidades e como receber.",
-    url: "https://marciobevervanso.com.br/bolsa-familia-comparativo-beneficios-regras/",
+    title: "CNH Social 2025 — regras por estado, edital e comparação",
+    desc: "Quem tem direito, critérios de renda/CadÚnico, documentação e como participar quando abrir.",
+    url: "https://marciobevervanso.com.br/cnh-gratuita-social-comparativo-regras-2025/",
   },
   {
     title: "Guia de Benefícios Sociais 2025",
-    desc: "Panorama dos principais direitos, inscrições e documentos.",
+    desc: "Panorama de direitos, inscrições e documentos essenciais (CadÚnico, CRAS, etc.).",
     url: "https://marciobevervanso.com.br/beneficios-sociais-governo-federal-guia-direitos-2025/",
   },
   {
-    title: "Minha Casa Minha Vida 2025 — faixas e benefícios",
-    desc: "Entenda as faixas de renda, regras e como participar.",
-    url: "https://marciobevervanso.com.br/minha-casa-minha-vida-2025-comparativo-faixas-beneficios/",
+    title: "Bolsa Família 2025 — benefícios e regras",
+    desc: "Valores, condicionalidades e calendário por NIS (pode pontuar em alguns editais).",
+    url: "https://marciobevervanso.com.br/bolsa-familia-comparativo-beneficios-regras/",
   },
   {
-    title: "CNH Social 2025 — regras e comparação",
-    desc: "Quem tem direito, diferenças por estado e como participar.",
-    url: "https://marciobevervanso.com.br/cnh-gratuita-social-comparativo-regras-2025/",
+    title: "Minha Casa Minha Vida 2025 — faixas e benefícios",
+    desc: "Entenda as faixas de renda e como participar.",
+    url: "https://marciobevervanso.com.br/minha-casa-minha-vida-2025-comparativo-faixas-beneficios/",
   },
 ];
 
@@ -39,59 +39,58 @@ export const QuizSection = () => {
 
   const total = 9;
 
-  // Perguntas focadas em Bolsa Família
+  // Perguntas focadas em CNH Social (genéricas, válidas para a maioria dos estados)
   const questions = [
+    {
+      key: "estado_editais",
+      text: "Você mora em um estado com edital da CNH Social ativo ou recorrente?",
+      options: ["Sim", "Não", "Não sei"],
+    },
     {
       key: "renda",
       text: "Qual é a renda familiar per capita?",
-      options: ["Até R$ 218", "Entre R$ 219 e R$ 660", "Acima de R$ 660"],
+      options: ["Até 1/2 salário mínimo", "Entre 1/2 e 1 salário mínimo", "Acima de 1 salário mínimo"],
     },
     {
       key: "cadunico",
       text: "Sua família está inscrita no CadÚnico?",
-      options: ["Sim, atualizado (menos de 24 meses)", "Sim, mas desatualizado", "Não sei/Não"],
+      options: ["Sim, atualizado (≤ 24 meses)", "Sim, mas desatualizado", "Não sei/Não"],
     },
     {
-      key: "composicao",
-      text: "Na família há gestantes, nutrizes ou crianças/adolescentes (0–17 anos)?",
-      options: ["Sim", "Não", "Não sei"],
+      key: "idade",
+      text: "Qual sua idade?",
+      options: ["18 anos ou mais", "16–17 anos", "Menos de 16 anos"],
     },
     {
-      key: "escola",
-      text: "As crianças/adolescentes (4–17) cumprem a frequência escolar exigida?",
-      options: ["Sim", "Não", "Não se aplica"],
-    },
-    {
-      key: "saude",
-      text: "Caderneta de vacinação e pré-natal (quando houver) estão em dia?",
-      options: ["Sim", "Não", "Não se aplica"],
-    },
-    {
-      key: "nis",
-      text: "Você conhece/possui o número do NIS (PIS/PASEP) dos membros?",
+      key: "alfabetizacao",
+      text: "Você sabe ler e escrever?",
       options: ["Sim", "Não"],
     },
     {
       key: "documentos",
-      text: "Possui documentos de todos os membros do grupo familiar?",
-      options: ["Sim, todos", "Não, preciso providenciar"],
+      text: "Você tem RG, CPF e comprovante de residência do seu estado?",
+      options: ["Sim, todos", "Tenho parcialmente", "Não"],
     },
     {
-      key: "ja_recebeu",
-      text: "Algum membro já recebeu Bolsa Família/Auxílio Brasil?",
-      options: ["Sim", "Não", "Não sei"],
+      key: "impedimentos",
+      text: "Possui impedimentos (ex.: suspensão, restrição judicial ou multas graves pendentes)?",
+      options: ["Não tenho impedimentos", "Tenho/Não sei"],
     },
     {
-      key: "conta",
-      text: "Possui Caixa Tem ou prefere receber por cartão/banco?",
-      options: ["Tenho Caixa Tem", "Prefiro cartão", "Outra conta/Não sei"],
+      key: "categoria",
+      text: "Para qual categoria pretende concorrer?",
+      options: ["A (moto)", "B (carro)", "A+B (quando permitido)"],
+    },
+    {
+      key: "vulnerabilidade",
+      text: "Situações que podem pontuar (quando previsto em edital):",
+      options: ["Desemprego/baixa renda", "Benefício social (BF, BPC, etc.)", "Nenhuma/Não sei"],
     },
   ];
 
   // -------- Analytics base + (se usar ads nesta página) --------
   useEffect(() => {
-    ga.event("quiz_gate_view", { page: "bolsa_familia" });
-    // Se houver blocos de anúncio com id, pode medir impressão:
+    ga.event("quiz_gate_view", { page: "cnh_social" });
     observeImpressionById?.("ad-horizontal-topo", "ad_view");
     observeImpressionById?.("ad-quadrado-sidebar", "ad_view");
     observeImpressionById?.("ad-multiplex-final", "ad_view");
@@ -110,7 +109,7 @@ export const QuizSection = () => {
     setStep(1);
     setAnswers({});
     setFirstAnswered(false);
-    ga.event("quiz_start", { theme: "bolsa_familia", via: "start_button" });
+    ga.event("quiz_start", { theme: "cnh_social", via: "start_button" });
   };
 
   const selectOption = (option: string) => {
@@ -147,7 +146,7 @@ export const QuizSection = () => {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl">
           <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">
-            Descubra se Você Tem Direito ao Bolsa Família
+            Descubra se Você Tem Direito à CNH Social
           </h2>
 
           <Card className={`p-6 md:p-8 shadow-soft ${finished ? "pb-24" : ""}`}>
@@ -155,14 +154,14 @@ export const QuizSection = () => {
             {!started && !finished && (
               <div className="space-y-6 text-center">
                 <p className="text-muted-foreground">
-                  Responda um questionário rápido para verificarmos sua <strong>elegibilidade</strong> ao{" "}
-                  <strong>Bolsa Família 2025</strong>.
+                  Responda um questionário rápido para avaliarmos sua <strong>elegibilidade</strong> ao{" "}
+                  <strong>Programa CNH Social 2025</strong> (regras variam por estado e edital do DETRAN).
                 </p>
-                <ul className="text-left grid gap-3 sm:grid-cols-2">
-                  <li className="p-3 rounded-md bg-muted">✔️ Leva menos de 1 minuto</li>
-                  <li className="p-3 rounded-md bg-muted">✔️ Sem dados pessoais sensíveis</li>
-                  <li className="p-3 rounded-md bg-muted">✔️ Resultado com orientações</li>
-                  <li className="p-3 rounded-md bg-muted">✔️ Links úteis ao final</li>
+                <ul className="grid gap-3 text-left sm:grid-cols-2">
+                  <li className="rounded-md bg-muted p-3">✔️ Menos de 1 minuto</li>
+                  <li className="rounded-md bg-muted p-3">✔️ Sem dados pessoais sensíveis</li>
+                  <li className="rounded-md bg-muted p-3">✔️ Resultado com próximos passos</li>
+                  <li className="rounded-md bg-muted p-3">✔️ Links úteis ao final</li>
                 </ul>
                 <div className="flex justify-center">
                   <Button size="lg" variant="hero" onClick={startQuiz} aria-label="Iniciar avaliação de elegibilidade">
@@ -170,7 +169,7 @@ export const QuizSection = () => {
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Conteúdo informativo. Procure o <strong>CRAS</strong> e mantenha o <strong>CadÚnico</strong> atualizado.
+                  Conteúdo informativo. A inscrição depende de <strong>edital do DETRAN</strong> do seu estado.
                 </p>
               </div>
             )}
@@ -193,7 +192,7 @@ export const QuizSection = () => {
                 </div>
 
                 {/* Pergunta atual */}
-                <div className="animate-in fade-in duration-300 space-y-4">
+                <div className="space-y-4 animate-in fade-in duration-300">
                   <h3 className="mb-4 text-xl font-semibold">{questions[step - 1].text}</h3>
                   <div className="space-y-3">
                     {questions[step - 1].options.map((option) => (
@@ -235,23 +234,24 @@ export const QuizSection = () => {
               <>
                 <div className="mb-6 flex justify-center">
                   <a
-                    href="https://marciobevervanso.com.br/bolsa-familia-comparativo-beneficios-regras/"
+                    href="https://marciobevervanso.com.br/cnh-gratuita-social-comparativo-regras-2025/"
                     target="_blank"
                     rel="nofollow noopener"
-                    className="btn-hero w-full sm:w-auto px-6 py-4 text-center text-base sm:text-lg shadow-strong hover:shadow-strong active:opacity-95"
-                    aria-label="Ver valores, regras e como receber"
+                    className="btn-hero w-full px-6 py-4 text-center text-base sm:w-auto sm:text-lg shadow-strong hover:shadow-strong active:opacity-95"
+                    aria-label="Ver regras por estado, edital e como participar"
                     onClick={() =>
-                      ga.event("cta_click", { id: "bf_regras_cta", placement: "quiz_result" })
+                      ga.event("cta_click", { id: "cnh_regras_cta", placement: "quiz_result" })
                     }
                   >
-                    Ver valores, regras e como receber
+                    Ver regras por estado e como participar
                   </a>
                 </div>
 
                 <h3 className="mb-3 text-lg font-semibold sm:text-xl">Orientações e próximos passos</h3>
                 <p className="mb-6 text-muted-foreground">
-                  Mantenha o <strong>CadÚnico</strong> atualizado no <strong>CRAS</strong> e acompanhe o calendário de
-                  pagamentos pelo <strong>Caixa Tem</strong> ou cartão. Veja também:
+                  Acompanhe o site do <strong>DETRAN</strong> do seu estado e o Diário Oficial para abertura de{" "}
+                  <strong>editais</strong>. Tenha <strong>CadÚnico</strong> atualizado (se exigido), documentos em dia e
+                  atenção aos prazos e critérios.
                 </p>
 
                 {/* Links úteis (cards clicáveis inteiros) */}
@@ -263,7 +263,7 @@ export const QuizSection = () => {
                         target="_blank"
                         rel="nofollow noopener"
                         className="block break-words rounded-lg border-2 border-border p-4 transition-all hover:border-primary/50"
-                        onClick={() => ga.event("outbound_click", { url: l.url, from: "quiz_result_bf" })}
+                        onClick={() => ga.event("outbound_click", { url: l.url, from: "quiz_result_cnh" })}
                       >
                         <div className="font-semibold underline-offset-2 hover:underline">{l.title}</div>
                         {l.desc && <p className="mt-1 text-sm text-muted-foreground">{l.desc}</p>}
@@ -283,7 +283,7 @@ export const QuizSection = () => {
                       setStep(1);
                       setAnswers({});
                       setFirstAnswered(false);
-                      ga.event("quiz_restart", { theme: "bolsa_familia" });
+                      ga.event("quiz_restart", { theme: "cnh_social" });
                     }}
                   >
                     Refazer quiz
