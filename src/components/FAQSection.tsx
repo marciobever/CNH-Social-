@@ -8,44 +8,44 @@ import {
 export const FAQSection = () => {
   const faqs = [
     {
-      question: "Quem tem direito ao Bolsa Família em 2025?",
+      question: "Quem tem direito à CNH Social em 2025?",
       answer:
-        "Famílias com renda por pessoa de até R$ 218, inscritas no CadÚnico e com dados atualizados. É preciso cumprir condicionalidades de saúde e educação.",
+        "Depende do edital do DETRAN de cada estado. Em geral, exige-se inscrição no CadÚnico, renda familiar per capita limitada e critérios de vulnerabilidade social. Podem existir prioridades (mulheres chefes de família, jovens, PCD, entre outros).",
     },
     {
-      question: "Quais são as condicionalidades?",
+      question: "Todos os estados oferecem CNH Social?",
       answer:
-        "Matrícula e frequência escolar de crianças e adolescentes, vacinação em dia e acompanhamento de saúde (pré-natal quando houver gestantes).",
+        "Não. Alguns usam nomes como CNH Social, CNH Popular ou programas próprios. A disponibilidade e o número de vagas dependem da política estadual e da publicação de editais pelo DETRAN local.",
     },
     {
-      question: "Como faço para me inscrever?",
+      question: "Como faço a inscrição quando abre edital?",
       answer:
-        "Procure o CRAS ou setor do CadÚnico da sua cidade para cadastrar/atualizar os dados. O cadastro não garante entrada imediata: a seleção é feita pelo governo com base nos critérios.",
+        "A inscrição é feita pelo site do DETRAN do seu estado (ou portal indicado no edital) dentro do prazo divulgado. Preencha o formulário, informe dados do CadÚnico/NIS, envie documentos quando solicitado e acompanhe o resultado.",
     },
     {
-      question: "Qual o valor do benefício?",
+      question: "Quais documentos geralmente são exigidos?",
       answer:
-        "Há um valor básico por família e adicionais por composição (crianças, adolescentes, gestantes e nutrizes). O total varia conforme a renda e o perfil familiar.",
+        "Documento com foto, CPF, comprovante de residência recente e dados do CadÚnico (NIS). O edital pode pedir comprovantes adicionais (escolaridade, situação de trabalho, PCD, etc.).",
     },
     {
-      question: "Quando recebo? Como funciona o calendário?",
+      question: "O que a CNH Social costuma cobrir?",
       answer:
-        "O pagamento segue o final do NIS e ocorre mensalmente. Consulte a data no app Caixa Tem ou canais oficiais da Caixa.",
+        "Muitos editais incluem isenção de taxas, aulas teóricas e práticas, exames e emissão da CNH. Porém, a cobertura exata varia: leia o edital do seu estado para saber o que está incluso e o que é responsabilidade do candidato.",
     },
     {
-      question: "Como consultar situação e extrato?",
+      question: "Para quais categorias vale (A/B) e há limites de idade?",
       answer:
-        "Use o app Caixa Tem, o app Bolsa Família, o Portal Cidadão ou vá a uma agência/lotérica da Caixa com documento e NIS.",
+        "Editais geralmente focam em 1ª habilitação nas categorias A e/ou B. É preciso ter a idade mínima legal (18 anos completos) e atender aos demais requisitos do DETRAN.",
     },
     {
-      question: "Meu benefício foi bloqueado ou suspenso. O que fazer?",
+      question: "Fui reprovado em alguma etapa. Perco a vaga?",
       answer:
-        "Verifique no app/Portal o motivo (ex.: dados desatualizados, condicionalidades, renda) e procure o CRAS/CadÚnico para regularizar.",
+        "As regras de reprovações, remarcações e prazos são definidas no edital e nas normas do DETRAN. Alguns permitem nova tentativa dentro do cronograma; outros podem encerrar o benefício. Consulte o seu edital.",
     },
     {
-      question: "Preciso ter conta para receber?",
+      question: "Como acompanhar o andamento e o resultado?",
       answer:
-        "Normalmente o pagamento é via Caixa Tem. Quem não tem conta pode receber com cartão/guia em unidades da Caixa, conforme orientação local.",
+        "Acompanhe o portal do DETRAN, o diário oficial e os canais informados no edital. Muitos estados divulgam lista de selecionados e chamamentos por etapas, com prazos para matrícula e aulas.",
     },
   ];
 
@@ -57,7 +57,7 @@ export const FAQSection = () => {
             Perguntas frequentes
           </h2>
           <p className="text-lg text-muted-foreground">
-            Tire suas dúvidas sobre o Bolsa Família 2025
+            Tire suas dúvidas sobre o Programa CNH Social 2025
           </p>
         </div>
 
@@ -80,7 +80,8 @@ export const FAQSection = () => {
           </Accordion>
 
           <p className="mt-6 text-center text-xs text-muted-foreground">
-            As regras podem ter ajustes locais. Confirme no CRAS/CadÚnico do seu município e nos canais oficiais da Caixa.
+            Regras e prazos variam por estado e edital do DETRAN. Consulte sempre o
+            anúncio oficial do seu estado para os detalhes atualizados.
           </p>
         </div>
       </div>
