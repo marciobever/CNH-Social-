@@ -2,106 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design system (HSL only) — CNH Social theme */
+/* Design system (HSL only) — CNH Social (gov.br) */
 @layer base {
   :root {
+    /* Base */
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 220 15% 16%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 220 15% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 220 15% 16%;
 
-    /* Core palette (CNH Social) */
-    --primary: 221 73% 40%;          /* Azul institucional (principal) */
+    /* Paleta gov.br */
+    --primary: 217 82% 38%;           /* Azul institucional gov.br (#1351B4 aprox) */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 221 73% 48%;
+    --primary-glow: 217 82% 46%;
 
-    --accent: 137 60% 38%;           /* Verde de apoio (faixa do logo) */
-    --accent-foreground: 0 0% 100%;
+    --secondary: 125 46% 34%;         /* Verde faixa (#2E7D32 aprox) */
+    --secondary-foreground: 0 0% 100%;
 
-    --secondary: 49 97% 52%;         /* Amarelo destaque (faixa do logo) */
-    --secondary-foreground: 24 100% 12%;
+    --accent: 44 100% 50%;            /* Amarelo faixa (#FFB300 aprox) */
+    --accent-foreground: 24 100% 14%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 12% 45%;
+    --muted: 220 16% 96%;
+    --muted-foreground: 220 10% 42%;
 
-    --destructive: 4 90% 58%;
+    --destructive: 4 78% 56%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 30% 90%;
-    --input: 210 30% 90%;
-    --ring: 221 73% 40%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 217 82% 38%;
 
     --radius: 0.75rem;
 
-    /* Gradients (tinta azul) */
-    --gradient-primary: linear-gradient(135deg, hsl(221 73% 40%), hsl(221 73% 48%));
-    --gradient-secondary: linear-gradient(135deg, hsl(137 60% 38%), hsl(49 97% 52%)); /* verde → amarelo */
-    --gradient-hero: linear-gradient(180deg, hsl(221 73% 98%), hsl(0 0% 100%));
+    /* Gradientes (tinta azul + faixa verde→amarelo) */
+    --gradient-primary: linear-gradient(135deg, hsl(217 82% 38%), hsl(217 82% 46%));
+    --gradient-secondary: linear-gradient(135deg, hsl(125 46% 34%), hsl(44 100% 50%));
+    --gradient-hero: linear-gradient(180deg, hsl(217 82% 98%), hsl(0 0% 100%));
 
-    /* Shadows (tinted by primary) */
-    --shadow-soft: 0 4px 20px -2px hsl(221 73% 40% / 0.14);
-    --shadow-strong: 0 10px 40px -5px hsl(221 73% 40% / 0.24);
+    /* Sombras (tint azul) */
+    --shadow-soft: 0 4px 20px -2px hsl(217 82% 38% / 0.14);
+    --shadow-strong: 0 10px 40px -5px hsl(217 82% 38% / 0.24);
 
     /* Sidebar (se usar) */
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 221 73% 40%;
+    --sidebar-foreground: 240 6% 26%;
+    --sidebar-primary: 217 82% 38%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 221 73% 40%;
+    --sidebar-accent: 220 16% 96%;
+    --sidebar-accent-foreground: 240 6% 14%;
+    --sidebar-border: 220 20% 90%;
+    --sidebar-ring: 217 82% 38%;
   }
 
   .dark {
-    --background: 215 25% 8%;
+    --background: 220 24% 10%;
     --foreground: 0 0% 98%;
 
-    --card: 215 25% 10%;
+    --card: 220 24% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 215 25% 10%;
+    --popover: 220 24% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 221 73% 48%;
+    --primary: 217 82% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 221 73% 58%;
+    --primary-glow: 217 82% 68%;
 
-    --accent: 137 60% 44%;
-    --accent-foreground: 0 0% 100%;
+    --secondary: 125 46% 42%;
+    --secondary-foreground: 0 0% 100%;
 
-    --secondary: 49 97% 56%;
-    --secondary-foreground: 24 100% 12%;
+    --accent: 44 100% 56%;
+    --accent-foreground: 24 100% 14%;
 
-    --muted: 215 20% 16%;
-    --muted-foreground: 215 12% 70%;
+    --muted: 220 16% 18%;
+    --muted-foreground: 220 10% 70%;
 
-    --destructive: 4 85% 54%;
+    --destructive: 4 80% 54%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 20% 18%;
-    --input: 215 20% 18%;
-    --ring: 221 73% 48%;
+    --border: 220 16% 22%;
+    --input: 220 16% 22%;
+    --ring: 217 82% 60%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(221 73% 48%), hsl(221 73% 58%));
-    --gradient-secondary: linear-gradient(135deg, hsl(137 60% 44%), hsl(49 97% 56%));
-    --gradient-hero: linear-gradient(180deg, hsl(215 20% 12%), hsl(215 20% 8%));
+    --gradient-primary: linear-gradient(135deg, hsl(217 82% 60%), hsl(217 82% 68%));
+    --gradient-secondary: linear-gradient(135deg, hsl(125 46% 42%), hsl(44 100% 56%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 24% 14%), hsl(220 24% 10%));
 
-    --shadow-soft: 0 4px 20px -2px hsl(221 73% 48% / 0.2);
-    --shadow-strong: 0 10px 40px -5px hsl(221 73% 48% / 0.3);
+    --shadow-soft: 0 4px 20px -2px hsl(217 82% 60% / 0.18);
+    --shadow-strong: 0 10px 40px -5px hsl(217 82% 60% / 0.28);
 
-    --sidebar-background: 215 20% 10%;
+    --sidebar-background: 220 24% 12%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 221 73% 48%;
+    --sidebar-primary: 217 82% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 215 20% 16%;
+    --sidebar-accent: 220 16% 18%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 215 20% 16%;
-    --sidebar-ring: 221 73% 48%;
+    --sidebar-border: 220 16% 18%;
+    --sidebar-ring: 217 82% 60%;
   }
 }
 
@@ -110,32 +111,18 @@
   body { @apply bg-background text-foreground; }
 }
 
-/* ======= ADDITIONS: Anti-overflow + Container + Utilities ======= */
+/* ===== utilidades extras (iguais) ===== */
 
-/* 1) Anti-overflow global (mobile) */
 @layer base {
   html, body { overflow-x: hidden; }
   img, video, canvas, svg, iframe { max-width: 100%; height: auto; }
   .adsbygoogle { max-width: 100% !important; display: block; }
 }
 
-/* 2) Container seguro (centralizado + padding responsivo) */
 @layer utilities {
-  .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    max-width: 1280px;
-  }
-  @media (min-width: 640px) {
-    .container { padding-left: 1.25rem; padding-right: 1.25rem; }
-  }
-}
+  .container { width:100%; margin-inline:auto; padding-inline:1rem; max-width:1280px; }
+  @media (min-width:640px){ .container { padding-inline:1.25rem; } }
 
-/* 3) Utilitários que mapeiam tokens do design system */
-@layer utilities {
   .shadow-soft   { box-shadow: var(--shadow-soft); }
   .shadow-strong { box-shadow: var(--shadow-strong); }
 
@@ -150,7 +137,7 @@
   .border-border         { border-color: hsl(var(--border)); }
 }
 
-/* 4) Botão “hero” */
+/* Botão “hero” */
 @layer utilities {
   .btn-hero {
     @apply inline-flex items-center justify-center font-medium;
@@ -161,42 +148,33 @@
     box-shadow: var(--shadow-soft);
     transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
   }
-  .btn-hero:hover { box-shadow: var(--shadow-strong); transform: translateY(-1px); }
+  .btn-hero:hover  { box-shadow: var(--shadow-strong); transform: translateY(-1px); }
   .btn-hero:active { transform: translateY(0); opacity: .95; }
 }
 
-/* 5) Quebra de linha agressiva para textos longos (impede estouro lateral) */
-@layer utilities {
-  .break-anywhere { overflow-wrap: anywhere; word-break: break-word; }
-}
+/* Quebra agressiva p/ textos longos */
+@layer utilities { .break-anywhere { overflow-wrap:anywhere; word-break:break-word; } }
 
-/* 6) FAB seguro (fica acima do anchor do AdSense no mobile) */
+/* FAB acima do anchor */
 @layer utilities {
-  @media (max-width: 1023px) {
-    .fab-anchor-safe {
-      bottom: calc(env(safe-area-inset-bottom, 0px) + 88px);
-    }
+  @media (max-width:1023px){
+    .fab-anchor-safe { bottom: calc(env(safe-area-inset-bottom,0px) + 88px); }
   }
 }
 
-/* 7) Anúncios fixos usados no /assistente (laterais desktop) */
+/* Ads laterais (assistente) */
 @layer utilities {
-  .ad-fixed-300x600 { width: 300px; height: 600px; }
-  .ad-fixed-300x250 { width: 300px; height: 250px; }
-  .ad-wrapper {
-    display: flex; align-items: flex-start; justify-content: center;
-    width: 300px; min-width: 300px;
-  }
+  .ad-fixed-300x600 { width:300px; height:600px; }
+  .ad-fixed-300x250 { width:300px; height:250px; }
+  .ad-wrapper { display:flex; align-items:flex-start; justify-content:center; width:300px; min-width:300px; }
 }
 
-/* 8) Altura padrão do card de chat (equilibra com laterais 600px) */
-@layer utilities {
-  .chat-body { height: 60vh; }
-}
+/* Chat */
+@layer utilities { .chat-body { height:60vh; } }
 
-/* 9) Scrollbar polida (opcional) */
+/* Scrollbar */
 @layer utilities {
-  .thin-scroll { scrollbar-width: thin; scrollbar-color: hsl(var(--muted-foreground) / .35) transparent; }
-  .thin-scroll::-webkit-scrollbar { width: 8px; }
-  .thin-scroll::-webkit-scrollbar-thumb { background: hsl(var(--muted-foreground) / .35); border-radius: 9999px; }
+  .thin-scroll { scrollbar-width:thin; scrollbar-color:hsl(var(--muted-foreground)/.35) transparent; }
+  .thin-scroll::-webkit-scrollbar { width:8px; }
+  .thin-scroll::-webkit-scrollbar-thumb { background:hsl(var(--muted-foreground)/.35); border-radius:9999px; }
 }
