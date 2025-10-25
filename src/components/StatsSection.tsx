@@ -4,28 +4,28 @@ import { Users, MapPin, Building2 } from "lucide-react";
 export const StatsSection = () => {
   const stats = [
     {
-      icon: Users,
-      value: "20M+",
-      label: "Famílias beneficiadas",
+      icon: MapPin,
+      value: "15+",
+      label: "Estados com ações/editais",
       desc:
-        "Transferência de renda com condicionalidades de saúde e educação para proteção social.",
-      color: "from-secondary to-accent", // verde → verde-claro
+        "Disponibilidade varia por unidade federativa; nomes podem mudar (CNH Social, CNH Popular, etc.).",
+      color: "from-primary to-primary-glow", // azul → azul-claro (paleta CNH)
     },
     {
-      icon: MapPin,
-      value: "5K+",
-      label: "Municípios atendidos",
+      icon: Users,
+      value: "Milhares",
+      label: "Vagas por edital",
       desc:
-        "Presença nacional com pagamentos via Caixa e apoio local das prefeituras.",
-      color: "from-primary to-primary-glow", // azul → azul-claro
+        "Quantidade definida pelo DETRAN/local; seleção prioriza critérios de renda e CadÚnico.",
+      color: "from-accent to-secondary", // verde → amarelo (paleta CNH)
     },
     {
       icon: Building2,
-      value: "CRAS/CadÚnico",
-      label: "Porta de entrada",
+      value: "Rede oficial",
+      label: "DETRAN e CFCs credenciados",
       desc:
-        "Cadastro, atualização e orientação pelas equipes do CRAS e postos do CadÚnico.",
-      color: "from-accent to-secondary", // verde-claro → verde
+        "Etapas teórica/prática e exames conduzidos por órgãos e centros credenciados.",
+      color: "from-secondary to-accent", // amarelo → verde (paleta CNH)
     },
   ] as const;
 
@@ -38,8 +38,11 @@ export const StatsSection = () => {
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 id="stats-heading" className="mb-4 text-3xl font-bold md:text-4xl">
-            Números que Importam
+            Indicadores do Programa CNH Social
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Panorama geral — a oferta e os critérios dependem do edital do seu estado.
+          </p>
         </div>
 
         <div className="grid gap-6 sm:gap-8 md:grid-cols-3 max-w-6xl mx-auto">
@@ -78,7 +81,7 @@ export const StatsSection = () => {
 
         {/* Nota discreta */}
         <p className="mt-6 text-center text-xs text-muted-foreground">
-          Indicadores aproximados e sujeitos a variações locais e sazonais.
+          Indicadores ilustrativos; confirme sempre no DETRAN do seu estado e no edital vigente.
         </p>
       </div>
     </section>
