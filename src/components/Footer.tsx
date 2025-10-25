@@ -1,18 +1,27 @@
 import { ExternalLink, AlertCircle, ArrowUpRight, ChevronUp } from "lucide-react";
 
 export const Footer = () => {
-  // Links oficiais (Bolsa Família)
+  // Links oficiais (CNH / Trânsito)
   const official = [
-    { title: "Bolsa Família — gov.br/MDS", url: "https://www.gov.br/mds/pt-br/bolsa-familia" },
-    { title: "Caixa — Bolsa Família", url: "https://www.caixa.gov.br/bolsa-familia" },
-    { title: "Calendário de Pagamentos — Caixa", url: "https://www.caixa.gov.br/beneficios-trabalhador/bolsa-familia/Paginas/default.aspx" },
+    {
+      title: "Serviços — Carteira Nacional de Habilitação (gov.br)",
+      url: "https://www.gov.br/pt-br/servicos/obter-a-carteira-nacional-de-habilitacao",
+    },
+    {
+      title: "SENATRAN — Trânsito (gov.br)",
+      url: "https://www.gov.br/pt-br/temas/transito",
+    },
+    {
+      title: "Site do DETRAN do seu Estado",
+      url: "https://www.google.com/search?q=DETRAN+do+seu+estado", // troque por uma página de lista, se tiver
+    },
   ] as const;
 
   // Navegação interna (ajuste ids conforme as seções do seu projeto)
   const internal = [
-    { title: "Benefícios", href: "#beneficios" },
+    { title: "Regras e benefícios", href: "#beneficios" },
     { title: "Quiz de elegibilidade", href: "#quiz" },
-    { title: "Como receber", href: "#como-receber" }, // se a seção for "como-agendar", troque o id aqui
+    { title: "Como se inscrever", href: "#como-inscrever" },
     { title: "Perguntas frequentes", href: "#faq" },
     { title: "Assistente (chat)", href: "/assistente" },
   ] as const;
@@ -41,7 +50,9 @@ export const Footer = () => {
                   {l.href.startsWith("#") ? (
                     <button
                       onClick={() =>
-                        document.querySelector(l.href)?.scrollIntoView({ behavior: "smooth", block: "start" })
+                        document
+                          .querySelector(l.href)
+                          ?.scrollIntoView({ behavior: "smooth", block: "start" })
                       }
                       className="inline-flex items-center gap-2 text-foreground/90 hover:text-primary"
                       aria-label={`Ir para ${l.title}`}
@@ -88,17 +99,21 @@ export const Footer = () => {
           {/* Aviso / Compliance */}
           <div className="rounded-lg border-2 border-primary/20 bg-primary/5 p-6">
             <div className="flex gap-3">
-              <AlertCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
+              <AlertCircle
+                className="h-5 w-5 text-primary flex-shrink-0 mt-0.5"
+                aria-hidden="true"
+              />
               <div className="text-sm text-muted-foreground">
                 <p className="mb-2 font-semibold text-foreground">Aviso importante</p>
                 <p className="mb-3">
-                  Esta página não possui vínculo com o Governo Federal, Ministério do Desenvolvimento e Assistência Social
-                  (MDS), Caixa ou quaisquer órgãos públicos. O conteúdo é informativo e serve para orientar sobre o
-                  programa Bolsa Família.
+                  Esta página não possui vínculo com a SENATRAN, DETRANs estaduais ou quaisquer
+                  órgãos públicos. O conteúdo é informativo e orienta sobre o Programa CNH Social
+                  quando houver edital vigente no seu estado.
                 </p>
                 <p>
-                  Não coletamos dados pessoais, não solicitamos pagamentos e não realizamos inscrições. Para cadastro e
-                  atualização, procure o <strong>CRAS/CadÚnico</strong> da sua cidade e os canais oficiais da Caixa.
+                  Não coletamos dados pessoais, não solicitamos pagamentos e não realizamos
+                  inscrições. Para participar, consulte exclusivamente os
+                  editais e canais oficiais do <strong>DETRAN do seu estado</strong>.
                 </p>
               </div>
             </div>
@@ -108,8 +123,10 @@ export const Footer = () => {
         {/* Linha inferior */}
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t pt-6 text-center text-sm text-muted-foreground md:flex-row md:text-left">
           <div>
-            <p>© {year} Bolsa Família — Página informativa</p>
-            <p className="mt-1">Preferências de privacidade e cookies geridas pela Google (AdSense/Analytics).</p>
+            <p>© {year} Programa CNH Social — Página informativa</p>
+            <p className="mt-1">
+              Preferências de privacidade e cookies geridas pela Google (AdSense/Analytics).
+            </p>
           </div>
 
           <button
