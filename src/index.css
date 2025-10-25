@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design system (HSL only) — Bolsa Família theme (gov-style) */
+/* Design system (HSL only) — CNH Social theme */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -14,47 +14,47 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    /* Core palette (gov vibe) */
-    --primary: 137 66% 35%;           /* Verde principal */
+    /* Core palette (CNH Social) */
+    --primary: 221 73% 40%;          /* Azul institucional (principal) */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 137 66% 42%;
+    --primary-glow: 221 73% 48%;
 
-    --secondary: 49 97% 52%;          /* Amarelo destaque */
+    --accent: 137 60% 38%;           /* Verde de apoio (faixa do logo) */
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 49 97% 52%;         /* Amarelo destaque (faixa do logo) */
     --secondary-foreground: 24 100% 12%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 12% 45%;
-
-    --accent: 221 83% 39%;            /* Azul institucional */
-    --accent-foreground: 0 0% 100%;
 
     --destructive: 4 90% 58%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 210 30% 90%;
     --input: 210 30% 90%;
-    --ring: 137 66% 35%;
+    --ring: 221 73% 40%;
 
     --radius: 0.75rem;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(137 66% 35%), hsl(137 66% 42%));
-    --gradient-secondary: linear-gradient(135deg, hsl(49 97% 52%), hsl(49 90% 60%));
-    --gradient-hero: linear-gradient(180deg, hsl(137 66% 96%), hsl(0 0% 100%));
+    /* Gradients (tinta azul) */
+    --gradient-primary: linear-gradient(135deg, hsl(221 73% 40%), hsl(221 73% 48%));
+    --gradient-secondary: linear-gradient(135deg, hsl(137 60% 38%), hsl(49 97% 52%)); /* verde → amarelo */
+    --gradient-hero: linear-gradient(180deg, hsl(221 73% 98%), hsl(0 0% 100%));
 
     /* Shadows (tinted by primary) */
-    --shadow-soft: 0 4px 20px -2px hsl(137 66% 35% / 0.14);
-    --shadow-strong: 0 10px 40px -5px hsl(137 66% 35% / 0.24);
+    --shadow-soft: 0 4px 20px -2px hsl(221 73% 40% / 0.14);
+    --shadow-strong: 0 10px 40px -5px hsl(221 73% 40% / 0.24);
 
-    /* Sidebar (se usar algum layout lateral) */
+    /* Sidebar (se usar) */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 221 83% 39%;
+    --sidebar-primary: 221 73% 40%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 221 83% 39%;
+    --sidebar-ring: 221 73% 40%;
   }
 
   .dark {
@@ -67,9 +67,12 @@
     --popover: 215 25% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 137 66% 42%;
+    --primary: 221 73% 48%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 137 66% 50%;
+    --primary-glow: 221 73% 58%;
+
+    --accent: 137 60% 44%;
+    --accent-foreground: 0 0% 100%;
 
     --secondary: 49 97% 56%;
     --secondary-foreground: 24 100% 12%;
@@ -77,31 +80,28 @@
     --muted: 215 20% 16%;
     --muted-foreground: 215 12% 70%;
 
-    --accent: 221 83% 46%;
-    --accent-foreground: 0 0% 100%;
-
     --destructive: 4 85% 54%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 215 20% 18%;
     --input: 215 20% 18%;
-    --ring: 137 66% 42%;
+    --ring: 221 73% 48%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(137 66% 42%), hsl(137 66% 50%));
-    --gradient-secondary: linear-gradient(135deg, hsl(49 97% 56%), hsl(49 95% 64%));
+    --gradient-primary: linear-gradient(135deg, hsl(221 73% 48%), hsl(221 73% 58%));
+    --gradient-secondary: linear-gradient(135deg, hsl(137 60% 44%), hsl(49 97% 56%));
     --gradient-hero: linear-gradient(180deg, hsl(215 20% 12%), hsl(215 20% 8%));
 
-    --shadow-soft: 0 4px 20px -2px hsl(137 66% 42% / 0.2);
-    --shadow-strong: 0 10px 40px -5px hsl(137 66% 42% / 0.3);
+    --shadow-soft: 0 4px 20px -2px hsl(221 73% 48% / 0.2);
+    --shadow-strong: 0 10px 40px -5px hsl(221 73% 48% / 0.3);
 
     --sidebar-background: 215 20% 10%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 221 83% 46%;
+    --sidebar-primary: 221 73% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 215 20% 16%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 215 20% 16%;
-    --sidebar-ring: 221 83% 46%;
+    --sidebar-ring: 221 73% 48%;
   }
 }
 
@@ -181,12 +181,8 @@
 
 /* 7) Anúncios fixos usados no /assistente (laterais desktop) */
 @layer utilities {
-  .ad-fixed-300x600 {
-    width: 300px; height: 600px;
-  }
-  .ad-fixed-300x250 {
-    width: 300px; height: 250px;
-  }
+  .ad-fixed-300x600 { width: 300px; height: 600px; }
+  .ad-fixed-300x250 { width: 300px; height: 250px; }
   .ad-wrapper {
     display: flex; align-items: flex-start; justify-content: center;
     width: 300px; min-width: 300px;
