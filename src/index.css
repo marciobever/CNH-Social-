@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design system (HSL only) — Bolsa Família theme (gov-style) */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Core palette (gov vibe) */
+    --primary: 137 66% 35%;           /* Verde principal */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 137 66% 42%;
+
+    --secondary: 49 97% 52%;          /* Amarelo destaque */
+    --secondary-foreground: 24 100% 12%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 12% 45%;
+
+    --accent: 221 83% 39%;            /* Azul institucional */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 30% 90%;
+    --input: 210 30% 90%;
+    --ring: 137 66% 35%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(137 66% 35%), hsl(137 66% 42%));
+    --gradient-secondary: linear-gradient(135deg, hsl(49 97% 52%), hsl(49 90% 60%));
+    --gradient-hero: linear-gradient(180deg, hsl(137 66% 96%), hsl(0 0% 100%));
+
+    /* Shadows (tinted by primary) */
+    --shadow-soft: 0 4px 20px -2px hsl(137 66% 35% / 0.14);
+    --shadow-strong: 0 10px 40px -5px hsl(137 66% 35% / 0.24);
+
+    /* Sidebar (se usar algum layout lateral) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 221 83% 39%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 221 83% 39%;
+  }
+
+  .dark {
+    --background: 215 25% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 215 25% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 215 25% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 137 66% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 137 66% 50%;
+
+    --secondary: 49 97% 56%;
+    --secondary-foreground: 24 100% 12%;
+
+    --muted: 215 20% 16%;
+    --muted-foreground: 215 12% 70%;
+
+    --accent: 221 83% 46%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 85% 54%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 18%;
+    --input: 215 20% 18%;
+    --ring: 137 66% 42%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(137 66% 42%), hsl(137 66% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(49 97% 56%), hsl(49 95% 64%));
+    --gradient-hero: linear-gradient(180deg, hsl(215 20% 12%), hsl(215 20% 8%));
+
+    --shadow-soft: 0 4px 20px -2px hsl(137 66% 42% / 0.2);
+    --shadow-strong: 0 10px 40px -5px hsl(137 66% 42% / 0.3);
+
+    --sidebar-background: 215 20% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 221 83% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 20% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 215 20% 16%;
+    --sidebar-ring: 221 83% 46%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+/* ======= ADDITIONS: Anti-overflow + Container + Utilities ======= */
+
+/* 1) Anti-overflow global (mobile) */
+@layer base {
+  html, body { overflow-x: hidden; }
+  img, video, canvas, svg, iframe { max-width: 100%; height: auto; }
+  .adsbygoogle { max-width: 100% !important; display: block; }
+}
+
+/* 2) Container seguro (centralizado + padding responsivo) */
+@layer utilities {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1280px;
+  }
+  @media (min-width: 640px) {
+    .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+}
+
+/* 3) Utilitários que mapeiam tokens do design system */
+@layer utilities {
+  .shadow-soft   { box-shadow: var(--shadow-soft); }
+  .shadow-strong { box-shadow: var(--shadow-strong); }
+
+  .bg-gradient-primary   { background-image: var(--gradient-primary); }
+  .bg-gradient-secondary { background-image: var(--gradient-secondary); }
+  .bg-hero               { background-image: var(--gradient-hero); }
+
+  .rounded-system { border-radius: var(--radius); }
+
+  .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+  .bg-muted              { background-color: hsl(var(--muted)); }
+  .border-border         { border-color: hsl(var(--border)); }
+}
+
+/* 4) Botão “hero” */
+@layer utilities {
+  .btn-hero {
+    @apply inline-flex items-center justify-center font-medium;
+    color: hsl(var(--primary-foreground));
+    background-image: var(--gradient-primary);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  }
+  .btn-hero:hover { box-shadow: var(--shadow-strong); transform: translateY(-1px); }
+  .btn-hero:active { transform: translateY(0); opacity: .95; }
+}
+
+/* 5) Quebra de linha agressiva para textos longos (impede estouro lateral) */
+@layer utilities {
+  .break-anywhere { overflow-wrap: anywhere; word-break: break-word; }
+}
+
+/* 6) FAB seguro (fica acima do anchor do AdSense no mobile) */
+@layer utilities {
+  @media (max-width: 1023px) {
+    .fab-anchor-safe {
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 88px);
+    }
+  }
+}
+
+/* 7) Anúncios fixos usados no /assistente (laterais desktop) */
+@layer utilities {
+  .ad-fixed-300x600 {
+    width: 300px; height: 600px;
+  }
+  .ad-fixed-300x250 {
+    width: 300px; height: 250px;
+  }
+  .ad-wrapper {
+    display: flex; align-items: flex-start; justify-content: center;
+    width: 300px; min-width: 300px;
+  }
+}
+
+/* 8) Altura padrão do card de chat (equilibra com laterais 600px) */
+@layer utilities {
+  .chat-body { height: 60vh; }
+}
+
+/* 9) Scrollbar polida (opcional) */
+@layer utilities {
+  .thin-scroll { scrollbar-width: thin; scrollbar-color: hsl(var(--muted-foreground) / .35) transparent; }
+  .thin-scroll::-webkit-scrollbar { width: 8px; }
+  .thin-scroll::-webkit-scrollbar-thumb { background: hsl(var(--muted-foreground) / .35); border-radius: 9999px; }
+}
