@@ -14,7 +14,7 @@ const SLOT_RIGHT = "4401401741";
 function uuid() {
   return crypto?.randomUUID?.() ?? Math.random().toString(36).slice(2);
 }
-function useSessionId(key = "assistente_sid_bf") {
+function useSessionId(key = "assistente_sid_cnh") {
   return useMemo(() => {
     let sid = localStorage.getItem(key);
     if (!sid) {
@@ -46,13 +46,13 @@ function SideFixedAd({ slot }: { slot: string }) {
 export default function Assistant() {
   const sid = useSessionId();
 
-  // Mensagem inicial (Bolsa Família) — curta, natural e com termos-chave
+  // Mensagem inicial (CNH Social) — curta e com termos-chave
   const [msgs, setMsgs] = useState<Msg[]>([
     {
       id: "hello",
       from: "bot",
       text:
-        "Oi, eu sou a Clara 😊 Posso te ajudar com Bolsa Família: regras de elegibilidade, renda per capita, CadÚnico/CRAS, NIS e calendário de pagamentos. Me diz sua dúvida (ou sua cidade/UF) e eu te guio no passo a passo.",
+        "Oi, eu sou a Clara 😊 Posso te ajudar com CNH Social: regras por estado, editais do DETRAN, critérios de renda/CadÚnico, documentos e etapas no CFC. Qual sua dúvida (ou informe seu estado/UF) que eu te guio.",
     },
   ]);
 
@@ -77,7 +77,7 @@ export default function Assistant() {
   }
 
   useEffect(() => {
-    ga.event("chat_view", { page: "assistente_bolsa" });
+    ga.event("chat_view", { page: "assistente_cnh" });
   }, []);
 
   // Centraliza o card ao abrir e inicia grudado no fim
@@ -110,7 +110,7 @@ export default function Assistant() {
     setInput("");
     setIsLoading(true);
     setTypingVisible(false);
-    ga.event("chat_ask", { len: q.length, theme: "bolsa" });
+    ga.event("chat_ask", { len: q.length, theme: "cnh_social" });
 
     // Mostra “digitando” apenas após ~4s (sem travar a chamada ao n8n)
     const typingTimer = setTimeout(() => setTypingVisible(true), 4000);
@@ -125,7 +125,7 @@ export default function Assistant() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: q,
-          context: { slug: "bolsa-familia", display_name: "Clara" },
+          context: { slug: "cnh-social", display_name: "Clara" },
           session: { id: sid },
         }),
       });
@@ -150,13 +150,13 @@ export default function Assistant() {
       if (!replyStr) replyStr = "...";
 
       setMsgs((m) => [...m, { id: uuid(), from: "bot", text: String(replyStr) }]);
-      ga.event("chat_answer", { theme: "bolsa" });
+      ga.event("chat_answer", { theme: "cnh_social" });
     } catch (err: any) {
       setMsgs((m) => [
         ...m,
         { id: uuid(), from: "bot", text: "Não consegui responder agora. Pode tentar de novo? 🙏" },
       ]);
-      ga.event("chat_error", { msg: String(err?.message || err), theme: "bolsa" });
+      ga.event("chat_error", { msg: String(err?.message || err), theme: "cnh_social" });
     } finally {
       clearTimeout(typingTimer);
       setTypingVisible(false);
@@ -229,7 +229,7 @@ export default function Assistant() {
               >
                 <input
                   className="flex-1 border rounded-lg px-3 py-3 outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="Escreva sua dúvida… (ex.: valor por pessoa, cadÚnico, NIS, calendário)"
+                  placeholder="Escreva sua dúvida… (ex.: edital do seu estado, critérios, documentos, etapas no DETRAN/CFC)"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                 />
@@ -244,7 +244,8 @@ export default function Assistant() {
           </div>
 
           <p className="mt-4 text-[12px] text-muted-foreground text-center">
-            Conteúdo informativo. Procure o <strong>CRAS</strong> da sua cidade para orientações oficiais sobre CadÚnico e Bolsa Família.
+            Conteúdo informativo. Consulte o <strong>DETRAN</strong> do seu estado e os <strong>editais oficiais</strong>;
+            alguns exigem <strong>CadÚnico/NIS</strong> e comprovantes específicos.
           </p>
         </div>
       </div>
