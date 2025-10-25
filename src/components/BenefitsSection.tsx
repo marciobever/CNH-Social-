@@ -1,54 +1,54 @@
 import { Card } from "@/components/ui/card";
-import { BadgeCheck, Wallet, CalendarDays, ArrowRight } from "lucide-react";
+import { BadgeCheck, FileCheck2, CalendarDays, ArrowRight } from "lucide-react";
 
 export const BenefitsSection = () => {
-  // 3 pontos-chave do Bolsa Família
+  // 3 pontos-chave da CNH Social (elegibilidade)
   const benefits = [
     {
       icon: BadgeCheck,
-      title: "Elegibilidade clara",
+      title: "Elegibilidade por estado",
       description:
-        "Renda por pessoa de até R$ 218, cadastro no CadÚnico atualizado e cumprimento das condicionalidades (escola, vacinação e pré-natal quando houver).",
+        "Critérios variam por edital do DETRAN: renda per capita (normalmente via CadÚnico), prioridade social e vagas específicas.",
     },
     {
-      icon: Wallet,
-      title: "Valor e adicionais",
+      icon: FileCheck2,
+      title: "Custos cobertos no edital",
       description:
-        "Benefício mínimo por família com adicionais para gestantes, nutrizes, crianças e adolescentes. Pagamento preferencial via Caixa Tem.",
+        "Muitos programas incluem taxas, aulas teóricas/práticas e exames. Leia o edital local para saber exatamente o que está incluso.",
     },
     {
       icon: CalendarDays,
-      title: "Calendário organizado",
+      title: "Inscrição e prazos",
       description:
-        "Recebimento por NIS, com calendário mensal oficial. Acompanhe pelo app Caixa Tem e canais da Caixa.",
+        "As inscrições abrem em janelas curtas. Acompanhe o DETRAN do seu estado e prepare documentos com antecedência.",
     },
   ];
 
-  // Leituras recomendadas (seu blog)
+  // Leituras recomendadas (ajustadas ao tema CNH Social)
   const resources = [
     {
-      title: "Bolsa Família 2025 — benefícios e regras",
-      desc: "Quem tem direito, valores por perfil, condicionalidades e como receber.",
-      url: "https://marciobevervanso.com.br/bolsa-familia-comparativo-beneficios-regras/",
-      tag: "Guia completo",
+      title: "CNH Social 2025 — regras e comparação",
+      desc: "Critérios por estado, documentos e como acompanhar editais.",
+      url: "https://marciobevervanso.com.br/cnh-gratuita-social-comparativo-regras-2025/",
+      tag: "Guia por estado",
     },
     {
       title: "Guia de Benefícios Sociais 2025",
-      desc: "Panorama de direitos, inscrições e documentos essenciais.",
+      desc: "Panorama de direitos e inscrições — base para CadÚnico e renda.",
       url: "https://marciobevervanso.com.br/beneficios-sociais-governo-federal-guia-direitos-2025/",
-      tag: "Leitura rápida",
+      tag: "Base CadÚnico",
+    },
+    {
+      title: "Bolsa Família 2025 — benefícios e regras",
+      desc: "Composição de renda e atualizações que impactam elegibilidade.",
+      url: "https://marciobevervanso.com.br/bolsa-familia-comparativo-beneficios-regras/",
+      tag: "Renda familiar",
     },
     {
       title: "Minha Casa Minha Vida 2025 — faixas e benefícios",
-      desc: "Entenda faixas de renda, regras e como participar.",
+      desc: "Entenda faixas de renda e documentos (úteis para cadastros).",
       url: "https://marciobevervanso.com.br/minha-casa-minha-vida-2025-comparativo-faixas-beneficios/",
-      tag: "Comparativo",
-    },
-    {
-      title: "CNH Social 2025 — regras e comparação",
-      desc: "Critérios por estado, documentos e prazos.",
-      url: "https://marciobevervanso.com.br/cnh-gratuita-social-comparativo-regras-2025/",
-      tag: "Oportunidade",
+      tag: "Documentos",
     },
   ];
 
@@ -58,13 +58,13 @@ export const BenefitsSection = () => {
         {/* Título */}
         <div className="mb-12 text-center">
           <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-            Atualizado 2025
+            Foco em elegibilidade
           </div>
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Por que conferir o Bolsa Família 2025?
+            Por que verificar sua elegibilidade na CNH Social 2025?
           </h2>
           <p className="text-lg text-muted-foreground">
-            Veja os pontos principais para entender se sua família tem direito e como receber.
+            Veja os critérios essenciais, o que costuma ser coberto e como acompanhar os editais do seu estado.
           </p>
         </div>
 
@@ -87,9 +87,9 @@ export const BenefitsSection = () => {
         {/* Recursos úteis */}
         <div className="mt-14">
           <div className="mb-4 text-center">
-            <h3 className="text-2xl font-semibold">Recursos úteis para você</h3>
+            <h3 className="text-2xl font-semibold">Recursos úteis para a inscrição</h3>
             <p className="text-muted-foreground">
-              Materiais que complementam sua jornada de acesso a benefícios.
+              Materiais que ajudam a comprovar renda, organizar documentos e acompanhar editais.
             </p>
           </div>
 
@@ -131,7 +131,6 @@ export const BenefitsSection = () => {
               </a>
             ))}
           </div>
-
         </div>
       </div>
     </section>
